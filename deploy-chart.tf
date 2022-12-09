@@ -26,7 +26,7 @@ resource "helm_release" "mosquitto" {
     #   "image.pullPolicy": "always",
 
     # })}
-    templatefile("./values.yml", {environment = var.environment, svcAcctName = ${local.svcAcctName} serviceName = "${local.serviceName}", storageClassName = kubernetes_storage_class_v1.ebs_cs_as_sc.metadata.[0].name, })
+    templatefile("./values.yml", {environment = var.environment, svcAcctName = ${local.svcAcctName} serviceName = ${local.serviceName}, storageClassName = kubernetes_storage_class_v1.ebs_cs_as_sc.metadata.[0].name, })
   ]
 }
 
