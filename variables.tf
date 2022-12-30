@@ -8,7 +8,7 @@ variable "workspace_for_environment" {
   }
 }
 
-local = {
+locals {
   serviceName = "${var.environment}-mosquitto"
   svcAcctName = "${var.environment}-mosquitto-sa"
 }
