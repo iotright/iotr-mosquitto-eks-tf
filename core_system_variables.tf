@@ -2,6 +2,12 @@
 
 # Core VPC variables
 
+variable "aws_region" {
+  description = "the damned region"
+  type = string
+  default = "us-east-1"
+}
+
 variable "environment" {
   description = "the env"
   type = string
