@@ -19,7 +19,7 @@ serviceAccount:
 
 service:
   type: NodePort
-  externalTrafficPolicy: Cluster
+  externalTrafficPolicy: local
   annotations:
     {}
     # metallb.universe.tf/allow-shared-ip: pi-hole
