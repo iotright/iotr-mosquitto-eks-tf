@@ -64,7 +64,7 @@ variable "prod_web_alb_sg" {
 variable "prod_rds_sgs" {
   description = "Core Hub RDS security groups (2)"
   type        = list(string)
-  default = "nobodycares"
+  default = ["nobodycares"]
 }
 
 # Endpoints and connection creds
