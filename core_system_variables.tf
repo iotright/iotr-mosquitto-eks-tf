@@ -2,6 +2,12 @@
 
 # Core VPC variables
 
+variable "environment" {
+  description = "the env"
+  type = string
+  default = "development"
+}
+
 variable "prod_vpc_id" {
   description = "Core Hub VPC Id"
   type        = string
