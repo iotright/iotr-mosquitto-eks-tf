@@ -26,6 +26,18 @@ resource "kubernetes_deployment_v1" "mosquitto" {
 
       spec {
         service_account_name = data.terraform_remote_state.terraform_addons.outputs.ebs_csi_controller_sa_name
+        volume {
+          name = "mosquitto-persistent-storage"
+          persistent_volume_claim {
+            claim_name = "mq-pv-claim"
+          }
+        }
+        volume {
+          name = "mosquitto-config"
+          config_map {
+            name = kubernetes_config_map_v1.mosquitto_config.metadata.0.name
+          }
+        }
         container {
           image = "eclipse-mosquitto:latest"
           name  = "mosquitto"
