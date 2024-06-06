@@ -7,8 +7,8 @@ resource "kubernetes_persistent_volume_claim_v1" "mq_pv_claim" {
   }
 
   spec {
-    access_modes = ["ReadWriteOnce"]
-
+    access_modes       = ["ReadWriteOnce"]
+    storage_class_name = "ebs-sc"
     resources {
       requests = {
         storage = "2Gi"
