@@ -1,10 +1,10 @@
-resource "kubernetes_storage_class_v1" "ebs_mosquitto_sc" {
-  metadata {
-    name = "ebs-sc"
-  }
-  storage_provisioner = "ebs.csi.aws.com"
-  volume_binding_mode = "WaitForFirstConsumer"
-}
+# resource "kubernetes_storage_class_v1" "ebs_mosquitto_sc" {
+#   metadata {
+#     name = "ebs-mosquitto-sc"
+#   }
+#   storage_provisioner = "ebs.csi.aws.com"
+#   volume_binding_mode = "WaitForFirstConsumer"
+# }
 
 resource "kubernetes_persistent_volume_v1" "mq_pv" {
   metadata {
@@ -23,7 +23,7 @@ resource "kubernetes_persistent_volume_v1" "mq_pv" {
 
     persistent_volume_reclaim_policy = "Retain"
 
-    storage_class_name = kubernetes_storage_class_v1.ebs_mosquitto_sc.metadata[0].name
+    storage_class_name = "ebs-sc"
 
     persistent_volume_source {
       host_path {
