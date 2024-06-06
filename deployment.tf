@@ -25,7 +25,7 @@ resource "kubernetes_deployment_v1" "mosquitto" {
       }
 
       spec {
-        service_account_name = data.terraform_remote_state.terraform_addons.outputs.ebs_csi_controller_sa_name
+        # service_account_name = data.terraform_remote_state.terraform_addons.outputs.ebs_csi_controller_sa_name
         volume {
           name = "mosquitto-persistent-storage"
           persistent_volume_claim {
