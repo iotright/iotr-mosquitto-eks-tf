@@ -20,7 +20,7 @@ data "terraform_remote_state" "hub" {
   }
 }
 
-data "terraform_addons" "terraform_addons" {
+data "terraform_remote_state" "terraform_addons" {
   backend = "remote"
 
   config = {
@@ -29,5 +29,5 @@ data "terraform_addons" "terraform_addons" {
       name = "${lookup(var.addons_workspace_for_environment, var.environment)}"
     }
   }
-  
+
 }
