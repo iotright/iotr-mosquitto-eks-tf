@@ -6,29 +6,29 @@
 #   volume_binding_mode = "WaitForFirstConsumer"
 # }
 
-resource "kubernetes_persistent_volume_v1" "mq_pv" {
-  metadata {
-    name = "mq-pv"
-    labels = {
-      app = "mosquitto"
-    }
-  }
+# resource "kubernetes_persistent_volume_v1" "mq_pv" {
+#   metadata {
+#     name = "mq-pv"
+#     labels = {
+#       app = "mosquitto"
+#     }
+#   }
 
-  spec {
-    capacity = {
-      storage = "2Gi"
-    }
+#   spec {
+#     capacity = {
+#       storage = "2Gi"
+#     }
 
-    access_modes = ["ReadWriteOnce"]
+#     access_modes = ["ReadWriteOnce"]
 
-    persistent_volume_reclaim_policy = "Retain"
+#     persistent_volume_reclaim_policy = "Retain"
 
-    storage_class_name = "ebs-sc"
+#     storage_class_name = "ebs-sc"
 
-    persistent_volume_source {
-      host_path {
-        path = "/mnt/data"
-      }
-    }
-  }
-}
+#     persistent_volume_source {
+#       host_path {
+#         path = "/mnt/data"
+#       }
+#     }
+#   }
+# }
