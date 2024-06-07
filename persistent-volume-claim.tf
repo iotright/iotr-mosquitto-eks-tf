@@ -2,7 +2,8 @@ resource "kubernetes_storage_class_v1" "ebs_mosquitto_sc" {
   metadata {
     name = "ebs-mosquitto-sc"
   }
-  storage_provisioner = "ebs.csi.aws.com"
+  #   storage_provisioner = "ebs.csi.aws.com"
+  storage_provisioner = "kubernetes.io/aws-ebs"
   volume_binding_mode = "WaitForFirstConsumer"
 }
 
