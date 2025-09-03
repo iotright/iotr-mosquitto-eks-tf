@@ -2,6 +2,18 @@
 
 # Core VPC variables
 
+variable "aws_region" {
+  description = "the damned region"
+  type = string
+  default = "us-east-1"
+}
+
+variable "environment" {
+  description = "the env"
+  type = string
+  default = "development"
+}
+
 variable "prod_vpc_id" {
   description = "Core Hub VPC Id"
   type        = string
@@ -64,6 +76,7 @@ variable "prod_web_alb_sg" {
 variable "prod_rds_sgs" {
   description = "Core Hub RDS security groups (2)"
   type        = list(string)
+  default = ["nobodycares"]
 }
 
 # Endpoints and connection creds
@@ -71,71 +84,85 @@ variable "prod_rds_sgs" {
 variable "sentry_dsn" {
   description = "endpoint for sentry service"
   type        = string
+  default = "nobodycares"
 }
 
 variable "mqtt_endpoint" {
   description = "mqtt broker endpoint, can be over ridden, points to production endpoint by default"
   type        = string
+  default = "nobodycares"
 }
 
 variable "prod_rds_endpoint" {
   description = "RDS endpoint"
   type        = string
+  default = "nobodycares"
 }
 
 variable "prod_rds_pg_port" {
   description = "RDS port for aurora instance"
   type        = string
+  default = "nobodycares"
 }
 
 variable "prod_atlas_endpoint" {
   description = "Production Atlas MongoDB endpoint"
   type        = string
+  default = "nobodycares"
 }
 
 variable "prod_redis_endpoint" {
   description = "Production elasticache redis endpoint"
   type        = string
+  default = "nobodycares"
 }
 
 variable "prod_rds_user" {
   description = "Production RDS username" # should be over ridden in each workspace
   type        = string
+  default = "nobodycares"
 }
 
 variable "prod_rds_pass" {
   description = "Production RDS password" # should be over ridden in each workspace
   type        = string
+  default = "nobodycares"
 }
 
 variable "prod_rds_db" {
   description = "Production RDS database name" # should be over ridden in each workspace
   type        = string
+  default = "nobodycares"
 }
 
 variable "prod_atlas_user" {
   description = "Production atlas connect username; over ride in workspace"
   type        = string
+  default = "nobodycares"
 }
 
 variable "prod_atlas_pass" {
   description = "Production atlas connection password; over ride in workspace"
   type        = string
+  default = "nobodycares"
 }
 
 variable "prod_atlas_db" {
   description = "Production atlas connection db name; over ride in workspace"
   type        = string
+  default = "nobodycares"
 }
 
 variable "iotright_com_zoneid" {
   description = "the zone id for the route53 iotright.com zone"
   type        = string
+  default = "nobodycares"
 }
 
 variable "ssl_certificate_arn" {
   description = "arn for acm certificate used for *.iotright.com"
   type        = string
+  default = "nobodycares"
 }
 
 
